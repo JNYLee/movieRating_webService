@@ -15,20 +15,17 @@
 </body>
 <script type="text/babel">
     const root = document.getElementById("root");
-    function countUp() {
-
-    }
     function App () {
-        // const data = React.useState(0); // useState를 사용하면 배열이 생기는 데 앞에 값이 담기고 뒤에 함수가 담긴다.
-        // const counter = data[0];
-        // const modifier = data[1];
-        const [counter, modifier] = React.useState(0); // 위에 있는 것과 같은 의미.
+        let [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter(counter + 1);
+        } 
         return (
         <div>
             <h3>Total Click: {counter}</h3>
-            <button onClick={countUp}>Click Me</button>
+            <button onClick={onClick}>Click Me</button>
         </div>
-    );
+    ); 
     }
     ReactDOM.render(<App />, root);
 </script>
