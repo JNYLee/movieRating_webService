@@ -14,22 +14,23 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
 </body>
 <script type="text/babel">
-    let counter = 0;
     const root = document.getElementById("root");
     function countUp() {
-        counter++;
-        render();
+
     }
-    function render() {
-        ReactDOM.render(<Container />, root);
-    }
-    const Container = () => (
+    function App () {
+        // const data = React.useState(0); // useState를 사용하면 배열이 생기는 데 앞에 값이 담기고 뒤에 함수가 담긴다.
+        // const counter = data[0];
+        // const modifier = data[1];
+        const [counter, modifier] = React.useState(0); // 위에 있는 것과 같은 의미.
+        return (
         <div>
             <h3>Total Click: {counter}</h3>
             <button onClick={countUp}>Click Me</button>
         </div>
     );
-    render();
+    }
+    ReactDOM.render(<App />, root);
 </script>
 
 </html>
