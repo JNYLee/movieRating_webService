@@ -18,7 +18,7 @@
     function App () {
         let [counter, setCounter] = React.useState(0);
         const onClick = () => {
-            setCounter(counter + 1);
+            setCounter((current) => {current + 1}); // 안에 함수를 넣거나 값을 입력할 수 있다.
         } 
         return (
         <div>
