@@ -15,32 +15,19 @@
 </body>
 <script type="text/babel">
     const root = document.getElementById("root");
-    const Title = () => {
+    function App () {
+        let [counter, setCounter] = React.useState(0);
+        const onClick = () => {
+            setCounter((current) => {current + 1}); // 안에 함수를 넣거나 값을 입력할 수 있다.
+        } 
         return (
-            <h3 id="title"
-                onMouseEnter={() => console.log("mouse enter")}>
-                Hello I'm a title
-            </h3>
-        );
-    }
-    const Button = () => {
-        return (
-            <button
-                onClick={() => console.log("I'm Clicked")}
-                style={{
-                    backgroundColor: "tomato",
-                }} >
-                click me
-            </button>
-        );
-    }
-    const Container = () => { return (
         <div>
-            <Title />
-            <Button />
+            <h3>Total Click: {counter}</h3>
+            <button onClick={onClick}>Click Me</button>
         </div>
-    );} // 컴포넌트의 앞글자는 반드시 대문자여야한다. 소문자면 HTML 태그로 인식해버림
-    ReactDOM.render(<Container />, root);
+    ); 
+    }
+    ReactDOM.render(<App />, root);
 </script>
 
 </html>
