@@ -1,16 +1,21 @@
-import { useState, useEffect } from "react";
-import Movie from "./components/Movie";
-import PropTypes from "prop-types";
+import Home from "./routes/Home"
+import Detail from "./routes/Detail"
+
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+} from "react-router-dom";
 
 function App() {
-  return null;
+  return <BrowserRouter>
+    <Routes>
+      <Route path="/movie:id" element={ <Detail />}>
+      </Route>
+      <Route path="/" element={ <Home />}>
+      </Route>
+    </Routes>
+  </BrowserRouter>;
 }
-
-Movie.propTypes ={
-  coverImg: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-  summary: PropTypes.string.isRequired,
-  genres: PropTypes.arrayOf(PropTypes.string).isRequired,
-};
 
 export default App;
